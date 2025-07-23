@@ -1,4 +1,3 @@
-import type { DirectApiRequestBody } from "@shopify/ui-extensions/point-of-sale";
 import { useEffect, useState } from "react";
 
 // 1. Define discount tiers and available discounts
@@ -51,41 +50,7 @@ export const useFetchLoyaltyPoints = (customerId: number) => {
 
 // 2. Fetch the loyalty points using a Direct API query on the customer metafield
 export const fetchLoyaltyPoints = async (customerId: number) => {
-  const requestBody: DirectApiRequestBody = {
-    query: `#graphql
-      query Customer($customerId: ID!) {
-          customer(id: $customerId) {
-            id
-            amountSpent {
-              amount
-            }
-            metafields(first: 5) {
-              edges {
-                node {
-                  id
-                  namespace
-                  key
-                  value
-                }
-              }
-            }
-            metafield(namespace:"custom", key: "loyalty_direct_points") {
-              value
-            }
-          }
-        }
-      `,
-    variables: {
-      customerId: `gid://shopify/Customer/${customerId}`,
-    },
-  };
-  const res = await fetch("shopify:admin/api/graphql.json", {
-    method: "POST",
-    body: JSON.stringify(requestBody),
-  });
-  const json = await res.json();
-
-  /* const result = await fetch("shopify:admin/api/graphql.json", {
+  const result = await fetch("shopify:admin/api/graphql.json", {
     method: "POST",
     body: JSON.stringify({
       query: `
@@ -94,16 +59,6 @@ export const fetchLoyaltyPoints = async (customerId: number) => {
             id
             amountSpent {
               amount
-            }
-            metafields(first: 5) {
-              edges {
-                node {
-                  id
-                  namespace
-                  key
-                  value
-                }
-              }
             }
             metafield(namespace:"custom", key: "loyalty_direct_points") {
               value
@@ -117,7 +72,7 @@ export const fetchLoyaltyPoints = async (customerId: number) => {
     }),
   });
 
-  const json = await result.json(); */
+  const json = await result.json();
 
   if (json.errors) {
     console.error("GraphQL Errors:", json.errors);
@@ -127,8 +82,8 @@ export const fetchLoyaltyPoints = async (customerId: number) => {
     return null;
   }
 
-  if (!res.ok) {
-    console.error("Network Error:", res.statusText);
+  if (!result.ok) {
+    console.error("Network Error:", result.statusText);
     return null;
   }
 

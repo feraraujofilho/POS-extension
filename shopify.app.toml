@@ -3,7 +3,7 @@
 client_id = "71029c89ab21855eed0309731b46e7f3"
 name = "pos-extension-2"
 handle = "pos-extension-11"
-application_url = "https://stockholm-genius-eight-phd.trycloudflare.com"
+application_url = "https://pamela-walked-lightning-enabling.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,7 +16,7 @@ include_config_on_deploy = true
 scopes = "write_products,read_customers,write_customers"
 
 [auth]
-redirect_urls = ["https://stockholm-genius-eight-phd.trycloudflare.com/auth/callback", "https://stockholm-genius-eight-phd.trycloudflare.com/auth/shopify/callback", "https://stockholm-genius-eight-phd.trycloudflare.com/api/auth/callback"]
+redirect_urls = ["https://pamela-walked-lightning-enabling.trycloudflare.com/auth/callback", "https://pamela-walked-lightning-enabling.trycloudflare.com/auth/shopify/callback", "https://pamela-walked-lightning-enabling.trycloudflare.com/api/auth/callback"]
 
 [webhooks]
 api_version = "2025-07"

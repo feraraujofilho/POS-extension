@@ -7,18 +7,28 @@ type = "ui_extension"
 name = "pos-ui-loyalty"
 
 handle = "pos-ui-loyalty"
-description = "A react POS UI extension"
+description = "A POS loyalty system with customer registration and points management"
 
 # Controls where in POS your extension will be injected,
-# and the file that contains your extension’s source code.
-[[extensions.targeting]]
-module = "./src/Action.jsx"
-target = "pos.customer-details.action.render"
+# and the file that contains your extension's source code.
 
+# Home screen tile to access customer registration
+[[extensions.targeting]]
+module = "./src/Tile.jsx"
+target = "pos.home.tile.render"
+
+# Customer registration modal
+[[extensions.targeting]]
+module = "./src/Modal.jsx"
+target = "pos.home.modal.render"
+
+# Loyalty points display and usage in customer details (primary)
 [[extensions.targeting]]
 module = "./src/CustomerDetailsBlock.tsx"
 target = "pos.customer-details.block.render"
 
+
+# Customer details action
 [[extensions.targeting]]
-module = "./src/MenuItem.jsx"
-target = "pos.customer-details.action.menu-item.render"
+module = "./src/Action.jsx"
+target = "pos.customer-details.action.render"

@@ -1,28 +1,21 @@
 import React from "react";
-
 import {
-  Text,
-  Screen,
-  ScrollView,
-  Navigator,
   reactExtension,
   useApi,
+  Button,
 } from "@shopify/ui-extensions-react/point-of-sale";
 
-const Modal = () => {
+const LoyaltyAction = () => {
   const api = useApi();
-  
-  return (
-    <Navigator>
-      <Screen name="CustomerDetails" title="Customer Details">
-        <ScrollView>
-          <Text>{`Customer ID: ${api.customer.id}`}</Text>
-        </ScrollView>
-      </Screen>
-    </Navigator>
-  );
+
+  const handlePress = () => {
+    api.toast.show("Loyalty action pressed");
+    // Add loyalty-specific action logic here
+  };
+
+  return <Button title="Loyalty Points" onPress={handlePress} />;
 };
 
 export default reactExtension("pos.customer-details.action.render", () => (
-  <Modal />
+  <LoyaltyAction />
 ));

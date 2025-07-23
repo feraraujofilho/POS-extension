@@ -19,9 +19,10 @@ export default function App() {
   return (
     <div className={styles.index}>
       <div className={styles.content}>
-        <h1 className={styles.heading}>A short heading about [your app]</h1>
+        <h1 className={styles.heading}>POS Loyalty Extension</h1>
         <p className={styles.text}>
-          A tagline about [your app] that describes your value proposition.
+          Manage customer loyalty points and registrations directly from your
+          Shopify POS.
         </p>
         {showForm && (
           <Form className={styles.form} method="post" action="/auth/login">
@@ -31,22 +32,22 @@ export default function App() {
               <span>e.g: my-shop-domain.myshopify.com</span>
             </label>
             <button className={styles.button} type="submit">
-              Log in
+              Install App
             </button>
           </Form>
         )}
         <ul className={styles.list}>
           <li>
-            <strong>Product feature</strong>. Some detail about your feature and
-            its benefit to your customer.
+            <strong>Customer Registration</strong>. Allow customers to register
+            for your loyalty program directly at the POS.
           </li>
           <li>
-            <strong>Product feature</strong>. Some detail about your feature and
-            its benefit to your customer.
+            <strong>Points Management</strong>. View, add, and redeem loyalty
+            points from the customer details screen.
           </li>
           <li>
-            <strong>Product feature</strong>. Some detail about your feature and
-            its benefit to your customer.
+            <strong>Automatic Discounts</strong>. Apply loyalty discounts
+            automatically when customers redeem points.
           </li>
         </ul>
       </div>
